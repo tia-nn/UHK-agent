@@ -1,5 +1,14 @@
 ![Agent logo & text](https://raw.githubusercontent.com/UltimateHackingKeyboard/agent/master/packages/uhk-web/src/assets/images/agent-logo-with-text.png)
 
+----
+
+## Difference of original
+
+- [wip] add Monarch language to macro editor
+- [wish] add Completion support to mactor editor
+
+---
+
 Agent is the configuration application of the [Ultimate Hacking Keyboard](https://ultimatehackingkeyboard.com/).
 
 Please do not build Agent from source unless you want to develop it. Using an existing release is far easier for everyone involved:
