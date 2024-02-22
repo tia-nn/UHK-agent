@@ -25,7 +25,7 @@ import { LogService } from 'uhk-common';
 import { SelectedMacroActionId } from '../../../../../models';
 import { SmartMacroDocCommandAction, SmartMacroDocService } from '../../../../../services/smart-macro-doc-service';
 import { hasNonAsciiCharacters, NON_ASCII_REGEXP } from '../../../../../util';
-import { UHKMacroMonarchLanguage } from './monarch-language';
+import { UHKMacroConfig, UHKMacroMonarchLanguage } from './monarch-language';
 
 const MONACO_EDITOR_LINE_HEIGHT_OPTION = 66;
 const MONACO_EDITOR_LF_END_OF_LINE_OPTION = 0;
@@ -168,8 +168,9 @@ export class MacroCommandEditorComponent implements AfterViewInit, ControlValueA
     onEditorInit(editor: MonacoStandaloneCodeEditor) {
         this.logService.misc('[MacroCommandEditorComponent] editor initialized.');
 
-        monaco.languages.register({ id: 'uhk-macro' })
+        monaco.languages.register({ id: 'uhk-macro' });
         monaco.languages.setMonarchTokensProvider('uhk-macro', UHKMacroMonarchLanguage);
+        monaco.languages.setLanguageConfiguration('uhk-macro', UHKMacroConfig);
 
         this.editor = editor;
         this.setLFEndOfLineOption();
