@@ -27,8 +27,6 @@ import { SmartMacroDocCommandAction, SmartMacroDocService } from '../../../../..
 import { hasNonAsciiCharacters, NON_ASCII_REGEXP } from '../../../../../util';
 import { UHKMacroConfig, UHKMacroMonarchLanguage } from './monarch-language';
 
-const MONACO_EDITOR_LINE_HEIGHT_OPTION = 66;
-const MONACO_EDITOR_LF_END_OF_LINE_OPTION = 0;
 const MACRO_CHANGE_DEBOUNCE_TIME = 250;
 
 function getVsCodeTheme(): string {
@@ -209,7 +207,7 @@ export class MacroCommandEditorComponent implements AfterViewInit, ControlValueA
             this.smartMacroDocService.updateCommand(this.value);
         });
 
-        this.lineHeight = this.editor.getOption(MONACO_EDITOR_LINE_HEIGHT_OPTION) as any;
+        this.lineHeight = this.editor.getOption(monaco.editor.EditorOptions.lineHeight.id);
         this.calculateHeight();
     }
 
@@ -365,7 +363,7 @@ export class MacroCommandEditorComponent implements AfterViewInit, ControlValueA
         // when the editor first created. So if macro command has CRLF and the user modify the macro command
         // then the editor keep the CRLF option and not the LF option
         setTimeout(() => {
-            this.editor.getModel().setEOL(MONACO_EDITOR_LF_END_OF_LINE_OPTION);
+            this.editor.getModel().setEOL(monaco.editor.EndOfLineSequence.LF);
         }, 1);
     }
 }

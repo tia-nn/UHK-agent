@@ -3,15 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { NotifierModule } from 'angular-notifier';
+import { NotifierModule } from '@ert78gb/angular-notifier';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AngularSplitModule } from 'angular-split';
-import { DragulaModule } from 'ng2-dragula';
+import { DragulaModule } from '@ert78gb/ng2-dragula';
 import { ColorPickerModule } from 'ngx-color-picker';
-import { NgxResize } from 'ngx-resize';
-import { NgxSelectModule } from 'ngx-select-ex';
+import { NgxResize } from '@ert78gb/ngx-resize';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NouisliderModule } from 'ng2-nouislider';
 import { ClipboardModule } from 'ngx-clipboard';
@@ -135,6 +134,7 @@ import { XtermComponent } from './components/xterm/xterm.component';
 import { SliderWrapperComponent } from './components/slider-wrapper/slider-wrapper.component';
 import { EditableTextComponent } from './components/editable-text/editable-text.component';
 import { Autofocus } from './directives/autofocus/autofocus.directive';
+import { NgSelectMaxHeight } from './directives/ng-select-max-height';
 import { UhkDeviceBootloaderNotActiveGuard } from './services/uhk-device-bootloader-not-active.guard';
 import { FileUploadComponent } from './components/file-upload';
 import { AutoGrowInputComponent } from './components/auto-grow-input';
@@ -249,6 +249,7 @@ import appInitFactory from './services/app-init-factory';
         SliderWrapperComponent,
         EditableTextComponent,
         Autofocus,
+        NgSelectMaxHeight,
         RestoreConfigurationComponent,
         RecoveryModeComponent,
         FileUploadComponent,
@@ -275,11 +276,6 @@ import appInitFactory from './services/app-init-factory';
         DragulaModule.forRoot(),
         routing,
         MonacoEditorModule,
-        NgxSelectModule.forRoot({
-            keepSelectedItems: true,
-            optionValueField: 'id',
-            optionTextField: 'text'
-        }),
         NgSelectModule,
         NouisliderModule,
         NotifierModule.withConfig(angularNotifierConfig),
